@@ -1,3 +1,5 @@
+% Problem 1 Script, Lab Sheet 1 (Tank height)
+% Submitted by: Sammit Jain | 2014B4A3909G
 t_0 = 0;
 t_f = 30;
 
