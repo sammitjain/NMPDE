@@ -1,9 +1,11 @@
-% Problem 2, Lab Sheet 1 (Predator Prey Equation)
+% Problem 5, Lab Sheet 1 (Van der Pol's Equation)
 % Submitted by: Sammit Jain | 2014B4A3909G
 
-function uvdot = prob2(t,uv)  %Function to initialize ODE
-    uvdot(1) = (2-uv(2))*uv(1);
-    uvdot(2) = (uv(1)-1)*uv(2);
+function vdot = prob5(t,v)  %Function to initialize ODE
+    eps = 0.897;
     
-    uvdot = uvdot';
+    vdot(1) = v(2);
+    vdot(2) = -eps*((v(1)^2)-1)*v(2) - v(1);
+    
+    vdot = vdot';
 end

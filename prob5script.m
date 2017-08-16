@@ -1,7 +1,7 @@
-% Problem 2 Script, Lab Sheet 1 (Predator Prey Equation)
+% Problem 5 Script, Lab Sheet 1 (Van der Pol's Equation)
 % Submitted by: Sammit Jain | 2014B4A3909G
-t_0 = 0;
-t_f = 10;
+t_0 = 2;
+t_f = 20;
 
 N = 100;
 
@@ -9,16 +9,8 @@ step_size = (t_f-t_0)/N;    %Initialize Step Size
 
 tspan = t_0:step_size:t_f;  %Create spanning vector
 
-u_0 = 3;                     %Supply Initial values
-v_0 = 2;
-[T,UV] = ode45('prob2',tspan,[u_0 v_0]);    %Return result
+V_0 = 1;                     %Supply Initial values
+V_1 = 0;
+[T,V] = ode45('prob5',tspan,[V_0 V_1]);    %Return result
 
-subplot(1,2,1);
-plot(T,UV(:,1))                   %Plot result
-hold on;
-plot(T,UV(:,2))
-title('u(t) vs t and v(t) vs t');
-
-subplot(1,2,2);
-plot(UV(:,1),UV(:,2))
-title('u(t) vs v(t)');
+plot(T,V(:,1))                   %Plot result
