@@ -1,0 +1,23 @@
+%Program:       Script for Lab Sheet 1, Problem 4 - Parabolic PDE MOL
+%Programmer:    Sammit Jain | 2014B4A30909G
+
+global N h
+
+N = 50;
+
+x0 = 0;
+xf = 1;
+
+h = (xf-x0)/N;
+t0 = 0;
+tf = 1;
+tspan = t0:0.1:tf;
+
+[p,q] = size(tspan);
+ l = length(tspan);
+ 
+%Setting the initial conditions for MOL
+for j = 1:N-1
+    x(j) = j*h;
+    u0(j) = cos(pi*(x(j)-0.5));
+end

@@ -1,0 +1,14 @@
+%Program:       Lab Sheet 1, Problem 1 - Practice
+%Programmer:    Sammit Jain | 2014B4A30909G
+%Question:      MOL - Parabolic Partial Differential Equation
+
+
+function v = lab1_1(t,u)
+global N h
+
+dU = zeros(N+1,1);
+dU(1) = (-2*u(1)+u(2))/(h^2);
+dU(N+1) = (u(N)-2*u(N+1))/(h^2);
+
+v = d
+
