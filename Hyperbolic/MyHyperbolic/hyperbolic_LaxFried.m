@@ -34,7 +34,7 @@ for j = 1:M
     end
     
     i = N+1;
-    yq(i) = 0.5*(yp(N)+2*(x(i)-2)) - mu*(2*(x(i)-2)-yp(N))*0.5;
+    yq(i) = 0.5*(yp(N)) - mu*(-yp(N))*0.5;
     
     figure(2);
     plot(x,yq);
