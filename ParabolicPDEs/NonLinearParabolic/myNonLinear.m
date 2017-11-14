@@ -24,12 +24,13 @@ delt = 0.0008;
 
 for j = 1:N-1
     x(j) =j*h;
+    U0(j) = sin(pi*x(j));
 end
 
 %%% Initial Condition
-for j = 1:N-1
-    U0(j) = sin(pi*x(j));
-end
+%for j = 1:N-1
+    
+%end
 
 F = zeros(N-1,1);
 A = zeros(N-1,N-1);
@@ -45,7 +46,7 @@ U = ones(N-1,1);
 %Given tolerance values
 
 error = 1000.0;
-Tol = 1.e-8;
+Tol = 1e-8;
 k1 = 0;
 t = 0;
 

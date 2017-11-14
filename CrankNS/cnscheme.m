@@ -20,7 +20,7 @@ k = mu*2*h^2;
 M = (tf-t0)/k;
 U0 =  zeros(N-1,1);
 for j=1:N-1
-    x(j) = j*h;
+    x(j) = (j)*h;
     U0(j) = sin(pi*x(j));
 end
 

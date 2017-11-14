@@ -19,8 +19,8 @@ c = 0;
 d = 1;
 
 %Setting up the resolution in x and y axes
-M = 40; 
-N = 40;
+M = 100; 
+N = 100;
 
 format long;
 
@@ -47,42 +47,27 @@ end
 %Finding the total number of linear elements
 M1 = (N-1)*(M-1); 
 
-A = sparse(M1,M1); 
+%A = sparse(M1,M1); 
 
+N0 = N-1;
+e = ones(N0^2,1);
+e_I = ones(N0^2-N0,1);
+A_T = spdiags([e -4*e e], -1:1, N0^2, N0^2);
+A_I = spdiags(e_I,-N0,N0^2,N0^2);
+
+A = (A_T + A_I + A_I')/hx^2;
 F = zeros(M1,1);
 
+for i=1:(N0-1)
+    A(N0*i,N0*i+1) = 0;
+    A(N0*i+1,N0*i) = 0;
+end
 for j = 1:N-1
   for i=1:M-1
     k = i + (j-1)*(M-1); %Linearizing the 2D domain
     
-    F(k) = fpoisson(x(i),y(j));
+    F(k) = fpoisson(x(i),y(j));  
     
-    A(k,k) = -2/hx1 -2/hy1;
-    
-    if i == 1
-        A(k,k+1) = 1/hx1;
-    else
-       if i==M-1
-         A(k,k-1) = 1/hx1;
-       else
-        A(k,k-1) = 1/hx1;
-        A(k,k+1) = 1/hx1;
-       end
-    end
-
-%-- y direction --------------
-
-    if j == 1
-        A(k,k+M-1) = 1/hy1;
-    else
-       if j==N-1
-         A(k,k-(M-1)) = 1/hy1;
-       else
-          A(k,k-(M-1)) = 1/hy1;
-          A(k,k+M-1) = 1/hy1;
-       end
-     end
-
   end
 end
 
@@ -100,7 +85,7 @@ end
 
 % Analyze and Visualize the result.
 
-e = max( max( abs(Uapp-Uex)))        % The maximum error
+er = max( max( abs(Uapp-Uex)))        % The maximum error
 figure;
 subplot(1,2,1);
 surf(x,y,Uapp); 

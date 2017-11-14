@@ -25,8 +25,9 @@ for j = 1:N+1
     U0(j) = sin(pi*x(j)/2);
 end
 
-U0(1) = 0;
-U0(N+1) = 0;
+%U0(1) = 0;
+%U0(N+1) = 0;
+
 for j = 1:M
     %Uf(1) = (1-2*mu)*U0(1) + mu*U0(2);
     %Don't use expressions like the one above when doing zero

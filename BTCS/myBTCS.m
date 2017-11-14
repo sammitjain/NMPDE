@@ -15,10 +15,10 @@ N = 80;
 
 h = (xN-x0)/N;
 
-mu = 0.5;
+k = 0.0008;
 
 %Setting up the time interval
-k = mu*h^2;
+mu = k/(h^2);
 M = (tf-t0)/k;
 
 %Setting up the initial values from the given diferential equation
@@ -49,7 +49,7 @@ t = t0;
 
 for j = 1:M
     for i = 1:N+1
-        b(i) = U0(i) + k*f(x(i),t);
+        b(i) = U0(i) + k*f(x(i),t+k);
     end
     Uf = A\b;
     U0 = Uf;

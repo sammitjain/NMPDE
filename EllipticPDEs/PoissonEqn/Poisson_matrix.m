@@ -19,8 +19,8 @@ c = 0;
 d = 1;
 
 %Setting up the resolution in x and y axes
-M = 40; 
-N = 40;
+M = 100; 
+N = 100;
 
 format long;
 
@@ -85,9 +85,9 @@ for j = 1:N-1
 
   end
 end
-
+tic
 U = A\F;
-
+toc
 %--- Transform back to (i,j) form to plot the solution ---
 
 j = 1;
