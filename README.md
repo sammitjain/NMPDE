@@ -1,6 +1,11 @@
 # NMPDE
 Numerical Methods for Partial Differential Equations (MATH F422 - BITS Pilani)
 
+How to find your way through this repo:
+  1. Navigate to the folder corresponding to the problem you wish to solve.
+  2. Clone the entire folder and not just the main .m files, as the associated functions should be present.
+  3. Run the code normally in MATLAB, with the following tweaks:
+    
 NMPDE is a course offered at BITS Pilani University, which deals with solving PDEs using numerical FD schemes, and studying their respective stabilities and orders of convergence.
 
 Some of the schemes covered are: FTCS, BTCS, Crank Nicolson, ADI methods for 2D Parabolic PDEs, Theta-schemes, Thomas Algorithm, Jacobi Iterative method and Gauss Siedel Method
